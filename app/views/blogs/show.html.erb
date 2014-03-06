@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @blog.date %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @blog.subject %>
+</p>
+
+<p>
+  <strong>Entry:</strong>
+  <%= @blog.entry %>
+</p>
+
+<p>
+	<strong># of Entries:</strong>
+	<%= @blog.num_entries %>
+</p>
+
+Here are the blog entries:
+
+<table>
+  <thead>
+    <tr>
+      <th>Entry text</th>
+      <th>User</th>
+      <th>Subject</th>
+      <th>Category</th>
+      <th>Blog</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blog_entries.each do |blog_entry| %>
+      <tr>
+        <td><%= blog_entry.entry_text %></td>
+        <td><%= blog_entry.user_id %></td>
+        <td><%= blog_entry.subject %></td>
+        <td><%= blog_entry.category %></td>
+        <td><%= blog_entry.blog_id %></td>
+        <td><%= link_to 'Show', blog_entry %></td>
+        <td><%= link_to 'Edit', edit_blog_entry_path(blog_entry) %></td>
+        <td><%= link_to 'Destroy', blog_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>

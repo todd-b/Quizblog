@@ -1,0 +1,25 @@
+
+<h1>Class Project Website</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<div class="some_div">
+	
+</div>
+
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
+<br><br>
+<span>
+
+<a href="http://www.engadget.com" class="link">Engadget!</a><br>
+<a href="http://www.nytimes.com" class="link">New York Times</a><br>
+<a href="http://www.gizmodo.com" class="link">Gizmodo</a><br>
+<a href="http://www.stacksocial.com" class="link">StackSocial</a><br>
+

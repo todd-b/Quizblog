@@ -1,0 +1,70 @@
+<% if @user.first_name == "Todd" %>
+ 	This is Todd!
+<% end %>
+
+<% if @user.first_name != "Todd" %>
+	This is not Todd!
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email Address:</strong>
+  <%= @user.email_address %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @user.phone_number %>
+</p>
+
+<p>
+  <strong>Twitter Username</strong>
+  <%= @user.twitter_id %>
+</p>
+<p>
+  <strong>Password</strong>
+  <%= @user.password %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+<h2>List projects!<h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Due date</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.date %></td>
+        <td><%= project.due_date %></td>
+        <td><%= project.description %></td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
